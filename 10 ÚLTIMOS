@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt 
+import pandas as pd 
+
+data = pd.read_csv('/a5_ENERGIA.csv', index_col= ['Ano'], parse_dates = ['Ano'])
+
+fig, ax = plt.subplots(figsize = (14,7))
+
+
+ax.plot(data.iloc[131:].index.values, data['Energia'].iloc[131:])
+
+ax.grid()
+
+plt.xticks(data.iloc[131:].index.values)
+
+plt.show ()
