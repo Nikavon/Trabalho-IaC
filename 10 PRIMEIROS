@@ -1,21 +1,21 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from pandas.plotting import register_matplotlib_converters
+from pandas.plotting import register_matplotlib_converters //aviso do pandas na proxima versão vai precisar usar isso para converter o arquivo dataframe para datetime
 register_matplotlib_converters()
 
-data = pd.read_csv('/a5_ENERGIA.csv', index_col = ['Ano'], parse_dates = ['Ano'])
+data = pd.read_csv('/a5_ENERGIA.csv', index_col = ['Ano'], parse_dates = ['Ano']) // coluna ano em datetime
 
-fig, ax = plt.subplots(figsize = (14, 7))
+fig, ax = plt.subplots(figsize = (14, 7)) //ax criar eixo
 
-ax.plot (data.head(10).index.values, data['Energia'].head(10))
+ax.plot (data.head(10).index.values, data['Energia'].head(10)) // cria o grafico
 
-ax.set(ylabel= "Energia",
+ax.set(ylabel= "Energia", //
        xlabel= "Ano",
        title= "ENERGIA")
 
 ax.grid()
 
-plt.xticks(data.head(10).index.values)
+plt.xticks(data.head(10).index.values) // plotar datas
 
 plt.show ()
