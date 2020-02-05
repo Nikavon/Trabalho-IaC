@@ -1,0 +1,9 @@
+import matplotlib.pyplot as plt # transformando a biblioteca em plt
+import pandas as pd # transforma a biblioteca em pd
+
+data = pd.read_csv ('/a5_ENERGIA.csv', index_col = ['Ano'], parse_dates = ['Ano']) # ler o arquivo em csv 
+
+fig, ax = plt.subplots (figsize = (14,7))
+
+ax.boxplot (data['Energia'])
+plt.show ()
